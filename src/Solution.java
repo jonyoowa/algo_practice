@@ -19,20 +19,20 @@ public class Solution {
     
     public int[] shortestToChar(String S, char C) {
         int n = S.length();
-        int[] res = new int[n];
-        int pos = -n;
+        int pos = -1 * n;
+        int[] answer = new int[n];
         
         for (int i = 0; i < n; i++) {
-            if (S.charAt(i) == C) pos = i;
-            res[i] = i - pos;
+            if (S.charAt(i) == C) { pos = i; }
+            answer[i] = i - pos;
         }
         
         for (int i = n - 1; i >= 0; i--) {
-            if (S.charAt(i) == C)  pos = i;
-            res[i] = Math.min(res[i], Math.abs(i - pos));
+            if (S.charAt(i) == C)  { pos = i; }
+            answer[i] = Math.min(answer[i], Math.abs(i - pos));
         }
         
-        return res;
+        return answer;
     }
     
     public static int[] numberOfLines(int[] widths, String S) {
